@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'contacts',
     'certificates',
     'games',
+    'main',
 ]
 
 MIDDLEWARE = [
