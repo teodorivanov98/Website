@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Experience</h1>
+<ul>
+    {% for job in jobs %}
+        <li>
+            <strong>{{ job.position }}</strong> at {{ job.company }} ({{ job.start_date }} - {{ job.end_date|default:"Present" }})
+            <p>{{ job.description }}</p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

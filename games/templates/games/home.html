@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Games Home</title>
-</head>
-<body>
-    <h1>Welcome to Games</h1>
-    <ul>
-        <li><a href="{% url 'tictactoe' %}">Play Tic Tac Toe</a></li>
-        <li><a href="{% url 'rock-paper-scissors' %}">Play Rock Paper Scissors</a></li>
-        <li><a href="{% url 'guess-animal' %}">Play Animal Guessing Game</a></li>
-    </ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome to Games</h1>
+<ul>
+    <li><a href="{% url 'tictactoe' %}">Play Tic Tac Toe</a></li>
+    <li><a href="{% url 'rock_paper_scissors' %}">Play Rock Paper Scissors</a></li>
+    <li><a href="{% url 'guess_animal' %}">Play Animal Guessing Game</a></li>
+</ul>
+{% endblock %}
+
