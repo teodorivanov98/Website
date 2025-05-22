@@ -1,7 +1,5 @@
 import os
 from pathlib import Path
-import django_heroku
-import dj_database_url
 
 # Base directory - MUST be defined before usage
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,13 +12,12 @@ DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ['*']  # Change this in production for security
 
-# Database configuration - use DATABASE_URL if available, else fallback to SQLite
+# Database configuration - simple SQLite for local development
 DATABASES = {
-    'default': dj_database_url.config(
-        default=f'sqlite:///{os.path.join(BASE_DIR, "db.sqlite3")}',
-        conn_max_age=600,
-        ssl_require=False  # Set True on Heroku if you want SSL
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # Application definition
@@ -81,6 +78,3 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Enable WhiteNoise to serve static files efficiently
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
