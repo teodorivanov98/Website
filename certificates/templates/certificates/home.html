@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Welcome to the Certificates page!</h1>
+    <div class="bg-white p-4 shadow rounded">
+        <h2 class="mb-3">Certificates</h2>
+        <ul class="list-group">
+            {% for cert in certificates %}
+            <li class="list-group-item">
+                <strong>{{ cert.title }}</strong> - {{ cert.issuer }} ({{ cert.issue_date }})
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

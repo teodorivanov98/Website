@@ -2,15 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Teodor's CV Site</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Teodor Ivanov | CV Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        main {
+            padding-top: 2rem;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 1rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="/">Teodor Ivanov</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto">
+            <a class="navbar-brand fw-bold" href="/">Teodor Ivanov</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="/experience/">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="/education/">Education</a></li>
                     <li class="nav-item"><a class="nav-link" href="/certificates/">Certificates</a></li>
@@ -26,5 +48,13 @@
         {% block content %}
         {% endblock %}
     </main>
+
+    <footer>
+        <div class="container">
+            &copy; {{ now|default:"2024" }} Teodor Ivanov. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,16 +1,17 @@
-from django.shortcuts import render
+from django.contrib import admin
+from django.urls import path, include
 
-# Create your views here.
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('main.urls')),  # homepage
+    path('experience/', include('experience.urls')),
+    path('education/', include('education.urls')),
+    path('certificates/', include('certificates.urls')),
+    path('hobbies/', include('hobbies.urls')),
+    path('contacts/', include('contacts.urls')),
+    path('games/', include('games.urls')),
+]
 from django.shortcuts import render
 
 def home(request):
-    return render(request, 'games/home.html')
-
-def tictactoe(request):
-    return render(request, 'games/tictactoe.html')
-
-def rps(request):
-    return render(request, 'games/rps.html')
-
-def guess_animal(request):
-    return render(request, 'games/guess_animal.html')
+    return render(request, 'experience/home.html')

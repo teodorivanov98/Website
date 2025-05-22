@@ -1,2 +1,18 @@
 <h1>Welcome to My Personal Site</h1>
 <p><a href="/games/">Go to Games</a></p>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="mb-4">Welcome to Teodor Ivanov's Personal Site</h1>
+    <p>Explore the sections below:</p>
+    <div class="list-group mt-4">
+        <a href="{% url 'experience-home' %}" class="list-group-item list-group-item-action">Experience</a>
+        <a href="{% url 'education-home' %}" class="list-group-item list-group-item-action">Education</a>
+        <a href="{% url 'certificates-home' %}" class="list-group-item list-group-item-action">Certificates</a>
+        <a href="{% url 'hobbies-home' %}" class="list-group-item list-group-item-action">Hobbies</a>
+        <a href="{% url 'contacts-home' %}" class="list-group-item list-group-item-action">Contact</a>
+        <a href="{% url 'games-home' %}" class="list-group-item list-group-item-action">Games</a>
+    </div>
+</div>
+{% endblock %}
