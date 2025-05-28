@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: django-app
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn developmentsite.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: developmentsite.settings
+    autoDeploy: true
+    preDeployCommand: "python manage.py migrate"
