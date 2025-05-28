@@ -1,18 +1,47 @@
-<h1>Welcome to My Personal Site</h1>
-<p><a href="/games/">Go to Games</a></p>
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<div class="text-center">
-    <h1 class="mb-4">Welcome to Teodor Ivanov's Personal Site</h1>
-    <p>Explore the sections below:</p>
-    <div class="list-group mt-4">
-        <a href="{% url 'experience-home' %}" class="list-group-item list-group-item-action">Experience</a>
-        <a href="{% url 'education-home' %}" class="list-group-item list-group-item-action">Education</a>
-        <a href="{% url 'certificates-home' %}" class="list-group-item list-group-item-action">Certificates</a>
-        <a href="{% url 'hobbies-home' %}" class="list-group-item list-group-item-action">Hobbies</a>
-        <a href="{% url 'contacts-home' %}" class="list-group-item list-group-item-action">Contact</a>
-        <a href="{% url 'games-home' %}" class="list-group-item list-group-item-action">Games</a>
+<header class="hero-section text-center text-white">
+    <img src="{% static 'main/images/profile.jpg' %}" class="rounded-circle mx-auto d-block" width="200" alt="Profile Photo">
+    <h1 class="mt-3">Teodor Ivanov</h1>
+    <p>Web Developer | Python Enthusiast</p>
+    <div class="social-links">
+        <a href="#">GitHub</a> · <a href="#">LinkedIn</a>
     </div>
-</div>
+</header>
+
+<section id="about" class="container py-5">
+    <h2 class="mb-3">About Me</h2>
+    <p>Hello! I'm a passionate developer with experience in building web apps and working with Django, Python, and modern web tools.</p>
+</section>
+
+<section id="skills" class="bg-light py-5">
+    <div class="container">
+        <h2 class="mb-4 text-center">Skills</h2>
+        <div class="mb-3">Linux</div>
+        <div class="progress mb-3"><div class="progress-bar" style="width: 80%;">80%</div></div>
+        <div class="mb-3">Firewalls</div>
+        <div class="progress mb-3"><div class="progress-bar" style="width: 80%;">80%</div></div>
+        <div class="mb-3">Python</div>
+        <div class="progress"><div class="progress-bar" style="width: 60%;">60%</div></div>
+    </div>
+</section>
+
+<section id="contact" class="container py-5">
+    <h2>Contact Me</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <input type="text" name="name" class="form-control" placeholder="Your Name">
+        </div>
+        <div class="mb-3">
+            <input type="email" name="email" class="form-control" placeholder="Your Email">
+        </div>
+        <div class="mb-3">
+            <textarea name="message" class="form-control" placeholder="Your Message" rows="5"></textarea>
+        </div>
+        <button class="btn btn-primary">Send</button>
+    </form>
+</section>
 {% endblock %}

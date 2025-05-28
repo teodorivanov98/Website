@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 class Certificate(models.Model):
     title = models.CharField(max_length=100)
     issuer = models.CharField(max_length=100)

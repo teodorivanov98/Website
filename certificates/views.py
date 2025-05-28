@@ -1,6 +1,6 @@
 from django.shortcuts import render
+from .models import Certificate
 
-# Create your views here.
-from django.shortcuts import render
 def home(request):
-    return render(request, 'certificates/home.html')
+    certificates = Certificate.objects.all()
+    return render(request, 'certificates/home.html', {'certificates': certificates})

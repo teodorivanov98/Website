@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Experience Page</h1>
-<p>This is where your experience will go.</p>
+<h2 class="mb-4">Experience</h2>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for job in jobs %}
+    <div class="col">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ job.position }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ job.company }}</h6>
+                <p class="card-text">{{ job.start_date }} - {{ job.end_date|default:"Present" }}</p>
+                <p class="card-text">{{ job.description }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}

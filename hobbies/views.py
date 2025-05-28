@@ -1,6 +1,6 @@
 from django.shortcuts import render
+from .models import Hobby
 
-# Create your views here.
-from django.shortcuts import render
 def home(request):
-    return render(request, 'hobbies/home.html')
+    hobbies = Hobby.objects.all()
+    return render(request, 'hobbies/home.html', {'hobbies': hobbies})

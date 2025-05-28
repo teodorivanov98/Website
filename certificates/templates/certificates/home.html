@@ -1,14 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="bg-white p-4 shadow rounded">
-        <h2 class="mb-3">Certificates</h2>
-        <ul class="list-group">
-            {% for cert in certificates %}
-            <li class="list-group-item">
-                <strong>{{ cert.title }}</strong> - {{ cert.issuer }} ({{ cert.issue_date }})
-            </li>
-            {% endfor %}
-        </ul>
+<h2 class="mb-4">Certificates</h2>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for cert in certificates %}
+    <div class="col">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ cert.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ cert.issuer }}</h6>
+                <p class="card-text">Issued: {{ cert.issue_date }}</p>
+                {% if cert.certificate_url %}
+                <a href="{{ cert.certificate_url }}" target="_blank" class="btn btn-primary">View Certificate</a>
+                {% endif %}
+            </div>
+        </div>
     </div>
+    {% endfor %}
+</div>
 {% endblock %}

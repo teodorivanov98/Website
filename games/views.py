@@ -7,7 +7,7 @@ def tictactoe(request):
     return render(request, 'games/tictactoe.html')
 
 def rock_paper_scissors(request):
-    return render(request, 'games/rock_paper_scissors.html')
+    return render(request, 'games/rps.html')
 
 def guess_animal(request):
     return render(request, 'games/guess_animal.html')

@@ -1,18 +1,18 @@
 import os
 from pathlib import Path
 
-# Base directory - MUST be defined before usage
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = os.getenv('SECRET_KEY', '&k=woi#3nyp%-s_buu9@@!9ffzyi^psxl&w=!8#0v8hg^)h=kh')
 
-# SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['*']  # Change this in production for security
+ALLOWED_HOSTS = ['*']
 
-# Database configuration - simple SQLite for local development
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -20,7 +20,7 @@ DATABASES = {
     }
 }
 
-# Application definition
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # WhiteNoise for static files
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -67,32 +67,33 @@ TEMPLATES = [
     },
 ]
 
-# Static files (CSS, JavaScript, Images)
+
 STATIC_URL = '/static/'
 
-# Additional locations of static files
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-# Directory where collectstatic will collect static files for production
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Static files finders
+
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',  # Looks in STATICFILES_DIRS
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',  # Looks in app static folders
 ]
 
-# Enable WhiteNoise to serve static files efficiently
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Media files (user uploaded content)
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Security settings for production (enable when using HTTPS)
-# SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# SECURE_HSTS_SECONDS = 3600
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_HSTS_PRELOAD = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+

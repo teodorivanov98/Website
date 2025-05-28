@@ -1,58 +1,47 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Teodor Ivanov | CV Website</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    >
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        main {
-            padding-top: 2rem;
-        }
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 1rem 0;
-            margin-top: 3rem;
-            text-align: center;
-        }
-    </style>
+    <title>Teodor Ivanov - CV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <script src="{% static 'main/js/main.js' %}" defer></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="/">Teodor Ivanov</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'main/images/logo.png' %}" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/experience/">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/education/">Education</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/certificates/">Certificates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/hobbies/">Hobbies</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contacts/">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/games/">Games</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'experience-home' %}">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'education-home' %}">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'certificates-home' %}">Certificates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'hobbies-home' %}">Hobbies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contacts-home' %}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'games-home' %}">Games</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <main class="container">
-        {% block content %}
-        {% endblock %}
+    <main class="container pt-5 mt-5">
+        {% block content %}{% endblock %}
     </main>
 
-    <footer>
-        <div class="container">
-            &copy; {{ now|default:"2024" }} Teodor Ivanov. All rights reserved.
-        </div>
+    <footer class="bg-dark text-white mt-5 p-4 text-center">
+        <a href="https://github.com/yourprofile" class="text-white me-3"><i class="bi bi-github"></i> GitHub</a>
+        <a href="https://linkedin.com/in/yourprofile" class="text-white me-3"><i class="bi bi-linkedin"></i> LinkedIn</a>
+        <a href="tel:+123456789" class="text-white me-3"><i class="bi bi-telephone"></i> Phone</a>
+        <a href="https://instagram.com/yourprofile" class="text-white me-3"><i class="bi bi-instagram"></i> Instagram</a>
+        <a href="https://facebook.com/yourprofile" class="text-white"><i class="bi bi-facebook"></i> Facebook</a>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

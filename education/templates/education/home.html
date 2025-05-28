@@ -1,5 +1,18 @@
 {% extends "base.html" %}
-
 {% block content %}
-    <h1>Welcome to the Education page!</h1>
+<h2 class="mb-4">Education</h2>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for school in schools %}
+    <div class="col">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ school.school }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ school.degree }} in {{ school.field }}</h6>
+                <p class="card-text">{{ school.start_date }} - {{ school.end_date|default:"Present" }}</p>
+                <p class="card-text">{{ school.notes }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}

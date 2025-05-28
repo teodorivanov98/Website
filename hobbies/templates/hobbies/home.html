@@ -1,5 +1,17 @@
 {% extends "base.html" %}
-
 {% block content %}
-    <h1>Welcome to the Hobbies page!</h1>
+<h2 class="mb-4">Hobbies</h2>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for hobby in hobbies %}
+    <div class="col">
+        <div class="card shadow-sm">
+            {% if hobby.image %}<img src="{{ hobby.image.url }}" class="card-img-top" alt="{{ hobby.name }}">{% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ hobby.name }}</h5>
+                <p class="card-text">{{ hobby.description }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
