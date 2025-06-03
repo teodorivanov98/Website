@@ -8,6 +8,48 @@
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <script src="{% static 'main/js/main.js' %}" defer></script>
+    <style>
+        body {
+            background-image: url('{% static "main/images/background.png" %}');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        .hero-section {
+            text-align: center;
+            padding: 100px 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        section {
+            padding: 60px 0;
+        }
+        .skills-section {
+            background-image: url('{% static "main/images/skills-bg.png" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .education-section {
+            background-image: url('{% static "main/images/education-bg.png" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .certificates-section {
+            background-image: url('{% static "main/images/certificates-bg.png" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -37,11 +79,11 @@
     </main>
 
     <footer class="bg-dark text-white mt-5 p-4 text-center">
-        <a href="https://github.com/teodorivanov98" class="text-white me-3"><i class="bi bi-github"></i> GitHub</a>
-        <a href="https://www.linkedin.com/in/teodor-ivanov-path1/" class="text-white me-3"><i class="bi bi-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/yourprofile" class="text-white me-3"><i class="bi bi-github"></i> GitHub</a>
+        <a href="https://linkedin.com/in/yourprofile" class="text-white me-3"><i class="bi bi-linkedin"></i> LinkedIn</a>
         <a href="tel:+123456789" class="text-white me-3"><i class="bi bi-telephone"></i> Phone</a>
-        <a href="https://instagram.com/" class="text-white me-3"><i class="bi bi-instagram"></i> Instagram</a>
-        <a href="https://facebook.com/" class="text-white"><i class="bi bi-facebook"></i> Facebook</a>
+        <a href="https://instagram.com/yourprofile" class="text-white me-3"><i class="bi bi-instagram"></i> Instagram</a>
+        <a href="https://facebook.com/yourprofile" class="text-white"><i class="bi bi-facebook"></i> Facebook</a>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
