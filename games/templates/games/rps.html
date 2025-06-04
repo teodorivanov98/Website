@@ -1,6 +1,59 @@
 {% extends "base.html" %}
-
 {% block content %}
-<h1>Rock Paper Scissors</h1>
-<p>Here will be the Rock Paper Scissors game logic.</p>
+<div class="container text-center my-5">
+    <h2 class="mb-4">Rock Paper Scissors</h2>
+    <div>
+        <button class="btn btn-outline-primary m-2" onclick="play('rock')">🪨 Rock</button>
+        <button class="btn btn-outline-primary m-2" onclick="play('paper')">📄 Paper</button>
+        <button class="btn btn-outline-primary m-2" onclick="play('scissors')">✂️ Scissors</button>
+    </div>
+    <div id="result" class="mt-4"></div>
+    <div id="animation" class="mt-3" style="font-size: 2rem;"></div>
+</div>
+
+<script>
+function play(playerChoice) {
+    const options = ['rock', 'paper', 'scissors'];
+    const botChoice = options[Math.floor(Math.random() * options.length)];
+
+    let animation = document.getElementById("animation");
+    animation.textContent = "🤖 Thinking...";
+
+    setTimeout(() => {
+        let result = '';
+        if (playerChoice === botChoice) {
+            result = "It's a draw!";
+        } else if (
+            (playerChoice === 'rock' && botChoice === 'scissors') ||
+            (playerChoice === 'paper' && botChoice === 'rock') ||
+            (playerChoice === 'scissors' && botChoice === 'paper')
+        ) {
+            result = "You win!";
+        } else {
+            result = "You lose!";
+        }
+
+        animation.textContent = `You: ${emoji(playerChoice)} vs Bot: ${emoji(botChoice)}`;
+        document.getElementById("result").textContent = result;
+    }, 600);
+}
+
+function emoji(choice) {
+    return choice === 'rock' ? '🪨' : choice === 'paper' ? '📄' : '✂️';
+}
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const rpsAnimation = document.getElementById('rps-animation');
+    if (rpsAnimation) {
+      let dots = 0;
+      const interval = setInterval(() => {
+        dots = (dots + 1) % 4;
+        rpsAnimation.textContent = 'The bot is thinking' + '.'.repeat(dots);
+      }, 400);
+      setTimeout(() => clearInterval(interval), 4000);  // stops after 4 seconds
+    }
+  });
+</script>
+
 {% endblock %}
