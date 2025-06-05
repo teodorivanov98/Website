@@ -6,10 +6,13 @@
   <img src="https://img.shields.io/badge/Live%20Site-View%20Portfolio-blue?style=for-the-badge&logo=render" alt="Live Site" />
 </a>
 
+---
 
 ## 🌐 Live Demo
 
-Click the badge above to explore the fully functional **live deployment** of my personal portfolio site, hosted on [Render](https://render.com).
+Click the badge above to explore the **live deployment** of my personal portfolio, hosted on [Render](https://render.com).
+
+🕒 **Note:** It may take **a few seconds to a couple of minutes** for the site to wake up on first load. This is normal behavior for free-tier hosting on Render.
 
 ---
 
@@ -25,30 +28,33 @@ Click the badge above to explore the fully functional **live deployment** of my 
 
 ## 🤔 Why Use Render for Deployment?
 
-Since my project is built with **Django**, a **dynamic Python web framework**, it can't be deployed on static hosting platforms like GitHub Pages or Netlify.
+Since this project is built with **Django**, a **dynamic Python web framework**, it requires a server capable of:
 
-Render supports:
+- Running Python back-end code (e.g., Django views, email handling)
+- Hosting WSGI apps (e.g., via Gunicorn)
+- Managing dynamic routing and database interactions
 
-- Running dynamic server-side code (like Django views and forms)
-- Python environments with WSGI servers (like Gunicorn)
-- Automatic deployments from GitHub
-- Running management commands like `collectstatic` or database migrations
+
 
 ---
 
 ## 📬 Contact Form Note
 
-To handle form submissions and email notifications, my project integrates SMTP settings securely with Render’s environment variables. This avoids exposing sensitive email credentials in code.
+This project includes a working contact form.
+
+- Uses **SMTP** for email delivery
+- Email credentials are stored securely in **Render environment variables**
+- Avoids exposing sensitive information in the source code
 
 ---
 
 ## 🚀 Features
 
 - Central profile photo & responsive navbar
-- Interactive games (Tic Tac Toe, Rock-Paper-Scissors, Dice Roll)
+- Interactive games (🎮 Tic Tac Toe, ✂️ Rock-Paper-Scissors, 🎲 Dice Roll)
 - Sections: Experience, Education, Certificates, Hobbies
 - Working contact form with email notifications
-- Dynamic backgrounds for each section
+- Dynamic section-specific backgrounds
 
 ---
 
