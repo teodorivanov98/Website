@@ -29,3 +29,6 @@ def rock_paper_scissors(request):
         "result": result
     }
     return render(request, "games/rps.html", context)
+
+def roll_dice(request):
+    return render(request, 'games/roll_dice.html')

@@ -1,10 +1,19 @@
 {% extends "base.html" %}
-{% block section_class %}games-section{% endblock %}
+{% block section_class %}games-section text-black{% endblock %}
 {% block content %}
-<h2 class="mb-4">Games</h2>
-<ul class="list-group">
-    <li class="list-group-item"><a href="{% url 'tictactoe' %}">Play Tic Tac Toe</a></li>
-    <li class="list-group-item"><a href="{% url 'rock-paper-scissors' %}">Play Rock Paper Scissors</a></li>
-
-</ul>
+<div class="container text-center bg-white bg-opacity-75 p-4 rounded shadow">
+    <h2 class="mb-4 text-black fw-bold">Games</h2>
+    <div class="d-grid gap-3 col-6 mx-auto">
+        <a href="{% url 'tictactoe' %}" class="btn btn-lg btn-outline-primary fw-semibold shadow-sm hover-shadow">🎮 Play Tic Tac Toe</a>
+        <a href="{% url 'rock-paper-scissors' %}" class="btn btn-lg btn-outline-success fw-semibold shadow-sm hover-shadow">🗿📖✂ Rock Paper Scissors</a>
+        <a href="{% url 'roll-dice' %}" class="btn btn-lg btn-outline-warning fw-semibold shadow-sm hover-shadow">🎲 Roll the Dice</a>
+    </div>
+</div>
+<style>
+.hover-shadow:hover {
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+</style>
 {% endblock %}

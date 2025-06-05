@@ -1,10 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
 
+<!-- Contact Form Alerts -->
+{% if messages %}
+  <div class="container mt-4">
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} text-center fw-semibold" role="alert">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
 <section class="text-center text-black hero-section">
-    <img src="{% static 'main/images/profile.jpg' %}" alt="Profile Photo" class="profile-photo mb-3">
+    <img src="{% static 'main/images/profile.png' %}" alt="Profile Photo" class="profile-photo mb-3">
     <h1 class="fw-bold">Teodor Ivanov</h1>
     <p>IT engineer</p>
 </section>

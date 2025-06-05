@@ -1,55 +1,66 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container text-center my-5">
+<div class="container text-center my-5 text-black bg-white bg-opacity-75 p-4 rounded">
     <h2 class="mb-4">Tic Tac Toe</h2>
-    <div id="board" class="d-flex flex-wrap justify-content-center" style="width: 300px; margin: 0 auto;">
+    <div id="board" class="d-flex flex-wrap justify-content-center mx-auto" style="width: 300px;">
         {% for i in "012345678" %}
-            <div class="cell border border-dark" data-index="{{ i }}" style="width: 100px; height: 100px; font-size: 2rem; display: flex; align-items: center; justify-content: center; cursor: pointer;"></div>
+            <div class="cell border border-dark" data-index="{{ i }}"
+                style="width: 100px; height: 100px; font-size: 2rem;
+                       display: flex; align-items: center; justify-content: center; cursor: pointer; color: black;">
+            </div>
         {% endfor %}
     </div>
-    <h4 id="result" class="mt-4"></h4>
-    <button class="btn btn-secondary mt-3" onclick="resetGame()">Reset</button>
+    <h4 id="result" class="mt-4 text-black"></h4>
+    <button id="resetBtn" class="btn btn-secondary mt-3">Reset</button>
 </div>
 
 <script>
-let currentPlayer = "X";
-let board = Array(9).fill("");
+document.addEventListener("DOMContentLoaded", () => {
+    let currentPlayer = "X";
+    let board = Array(9).fill("");
 
-const winPatterns = [
-  [0,1,2],[3,4,5],[6,7,8],
-  [0,3,6],[1,4,7],[2,5,8],
-  [0,4,8],[2,4,6]
-];
+    const winPatterns = [
+      [0,1,2],[3,4,5],[6,7,8],
+      [0,3,6],[1,4,7],[2,5,8],
+      [0,4,8],[2,4,6]
+    ];
 
-document.querySelectorAll(".cell").forEach(cell => {
-    cell.addEventListener("click", () => {
-        const index = cell.dataset.index;
-        if (board[index] === "" && !document.getElementById("result").innerText) {
-            board[index] = currentPlayer;
-            cell.textContent = currentPlayer;
-            if (checkWin()) {
-                document.getElementById("result").textContent = currentPlayer + " wins!";
-            } else if (board.every(cell => cell)) {
-                document.getElementById("result").textContent = "It's a draw!";
-            } else {
-                currentPlayer = currentPlayer === "X" ? "O" : "X";
+    const cells = document.querySelectorAll(".cell");
+    const resultEl = document.getElementById("result");
+    const resetBtn = document.getElementById("resetBtn");
+
+    function checkWin() {
+        return winPatterns.some(pattern => {
+            const [a, b, c] = pattern;
+            return board[a] && board[a] === board[b] && board[b] === board[c];
+        });
+    }
+
+    function resetGame() {
+        board = Array(9).fill("");
+        cells.forEach(cell => cell.textContent = "");
+        resultEl.textContent = "";
+        currentPlayer = "X";
+    }
+
+    cells.forEach(cell => {
+        cell.addEventListener("click", () => {
+            const index = cell.dataset.index;
+            if (board[index] === "" && !resultEl.textContent) {
+                board[index] = currentPlayer;
+                cell.textContent = currentPlayer;
+                if (checkWin()) {
+                    resultEl.textContent = currentPlayer + " wins!";
+                } else if (board.every(cell => cell)) {
+                    resultEl.textContent = "It's a draw!";
+                } else {
+                    currentPlayer = currentPlayer === "X" ? "O" : "X";
+                }
             }
-        }
+        });
     });
+
+    resetBtn.addEventListener("click", resetGame);
 });
-
-function checkWin() {
-    return winPatterns.some(pattern => {
-        const [a, b, c] = pattern;
-        return board[a] && board[a] === board[b] && board[b] === board[c];
-    });
-}
-
-function resetGame() {
-    board = Array(9).fill("");
-    document.querySelectorAll(".cell").forEach(cell => cell.textContent = "");
-    document.getElementById("result").textContent = "";
-    currentPlayer = "X";
-}
 </script>
 {% endblock %}
