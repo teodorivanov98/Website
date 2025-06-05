@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block section_class %}games-section text-black{% endblock %}
+{% block content %}
+<div class="container text-center bg-white bg-opacity-75 p-5 rounded shadow">
+    <h2 class="mb-4 text-black fw-bold">🎲 Roll the Dice</h2>
+
+    <div class="my-4">
+        <img id="dice-img" src="{% static 'main/images/dice/dice1.png' %}" alt="Dice" width="120">
+    </div>
+
+    <button class="btn btn-lg btn-primary fw-semibold shadow" onclick="rollDice()">Roll</button>
+</div>
+
+<script>
+    // Get the base path from Django's static
+    const basePath = "{% static 'main/images/dice/' %}";
+
+    function rollDice() {
+        const img = document.getElementById("dice-img");
+        let rollCount = 10;
+        const interval = setInterval(() => {
+            const random = Math.floor(Math.random() * 6) + 1;
+            img.src = basePath + "dice" + random + ".png";
+            rollCount--;
+            if (rollCount === 0) clearInterval(interval);
+        }, 100);
+    }
+</script>
+{% endblock %}
