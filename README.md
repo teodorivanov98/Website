@@ -5,7 +5,7 @@
 <a href="https://teodor-ivanov.onrender.com/" target="_blank">
   <img src="https://img.shields.io/badge/Live%20Site-View%20Portfolio-blue?style=for-the-badge&logo=render" alt="Live Site" />
 </a>
----
+
 
 ## 🌐 Live Demo
 
