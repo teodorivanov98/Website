@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block section_class %}education-section{% endblock %}
 {% block content %}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4W771926R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K4W771926R');
+</script>
+
 <h2 class="mb-4 text-black fw-bold">Education</h2>
 <div class="row row-cols-1 row-cols-md-2 g-4">
     {% for school in schools %}
